@@ -1,6 +1,5 @@
 import psycopg2 as pg
-from SpotifyAPI import transform_data()
-
+import SpotifyAPI.py
 DBNAME = 'postgres'
 HOST='localhost'
 USENAME='postgres'

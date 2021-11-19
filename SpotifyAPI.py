@@ -1,7 +1,8 @@
-import requests
-import pandas as pd
-from datetime import datetime
 import datetime
+from datetime import datetime
+
+import pandas as pd
+import requests
 
 CLIENT_ID = ''  # insert your CLient ID
 CLIENT_SECRET = ''  # insert your Client secret

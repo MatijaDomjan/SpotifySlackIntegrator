@@ -1,32 +1,9 @@
 import requests
 import json
-import pandas.io.sql as psql
-
-DBNAME = 'postgres'
-HOST='localhost'
-USENAME='postgres'
-PASSWORD='postgres'
-
-def DatabaseConnection():
-    try:
-        dbconn = pg.connect("dbname={} user={} host={} password={}".format(DBNAME,USENAME,HOST,PASSWORD))
-    except pg.Error as error:
-        print(error)
-    return dbconn
 
 
-def SelectSongsFrame():
-    dbconn = DatabaseConnection()
-    try:
-        with dbconn:
-            sql = "SELECT * FROM spotify_daily_listened_songs"
-            df = psql.read_sql(sql,dbconn)
-    except pg.DataError as e:
-        print(e)
-        print("Error during inserting logs into RDS database in table_log")
-    return df
 
-def SlackMessageSending():
+def slack_sending_message():
     df = SelectSongsFrame()
     webhook = 'https://hooks.slack.com/services/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'
     data = {
@@ -39,5 +16,5 @@ def SlackMessageSending():
         'Greska prilikom slanja poruke'
     return 1
 
-
-SlackMessageSending()
+if __name__ == "__main__":
+    slack_sending_message()

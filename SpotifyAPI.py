@@ -45,7 +45,7 @@ def extract_data():
     return list_of_song, list_of_time_played, list_of_artist, list_of_albums
 
 
-def transfor_data():
+def transform_data():
     list_of_song, list_of_time_played, list_of_artist, list_of_albums = extract_data()
     frame = pd.DataFrame(
         {'Song': list_of_song,
@@ -57,7 +57,7 @@ def transfor_data():
 
 
 if __name__ == "__main__":
-    transfor_data()
+    transform_data()
 
 
 
